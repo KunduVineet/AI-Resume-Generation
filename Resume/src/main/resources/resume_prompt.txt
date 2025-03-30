@@ -1,0 +1,69 @@
+Generate a professional IT job resume in JSON format based on the following description:
+{userDescription}
+
+Instructions:
+- Extract only the details explicitly provided in the description, such as fullName, jobTitle, company, and any other specific information (e.g., email, phoneNumber, location, linkedIn, gitHub, portfolio, skills, etc.).
+- Do not infer or fabricate details beyond what is explicitly stated. If a detail is missing, use 'Not provided' for strings or leave arrays empty.
+- Use camelCase for all JSON keys (e.g., fullName, jobTitle).
+- Ensure URLs (e.g., linkedIn, gitHub, portfolio) start with 'https://' if provided in the description, otherwise use 'Not provided'.
+- Dates must be in 'MMM YYYY' format for durations (e.g., 'Jan 2020') and full years for graduationYear (e.g., '2020'). If exact dates are not provided, use a reasonable approximation based on the description or 'Not provided'.
+- Arrays must always be present, even if empty.
+- The summary should be a concise statement based solely on the description, without adding unstated details.
+- Properly format the JSON with 2-space indentation.
+
+JSON Structure:
+{
+  "personalInformation": {
+    "fullName": "Extracted from description (string)",
+    "email": "Extracted from description or 'Not provided' (string)",
+    "phoneNumber": "Extracted from description or 'Not provided' (string)",
+    "location": "Extracted from description or 'Not provided' (string)",
+    "linkedIn": "Extracted from description or 'Not provided' (string)",
+    "gitHub": "Extracted from description or 'Not provided' (string)",
+    "portfolio": "Extracted from description or 'Not provided' (string)"
+  },
+  "summary": "Concise summary based solely on the description (string)",
+  "skills": {
+    "programmingLanguages": ["Extracted from description (array of strings)"],
+    "frameworks": ["Extracted from description (array of strings)"],
+    "databases": ["Extracted from description (array of strings)"],
+    "cloud": ["Extracted from description (array of strings)"],
+    "devOpsTools": ["Extracted from description (array of strings)"],
+    "other": ["Extracted from description (array of strings)"]
+  },
+  "experience": [
+    {
+      "jobTitle": "Extracted from description (string)",
+      "company": "Extracted from description (string)",
+      "location": "Extracted from description or 'Not provided' (string)",
+      "duration": "Extracted from description or approximated based on experience length (string, 'MMM YYYY' format)",
+      "responsibilities": ["Extracted from description (array of strings)"]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Extracted from description or 'Not provided' (string)",
+      "university": "Extracted from description or 'Not provided' (string)",
+      "location": "Extracted from description or 'Not provided' (string)",
+      "graduationYear": "Extracted from description or 'Not provided' (string)"
+    }
+  ],
+  "certifications": [
+    {
+      "title": "Extracted from description or 'Not provided' (string)",
+      "issuingOrganization": "Extracted from description or 'Not provided' (string)",
+      "year": "Extracted from description or 'Not provided' (string)"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Extracted from description (string)",
+      "description": "Extracted from description (string)",
+      "technologies": ["Extracted from description (array of strings)"],
+      "gitHubLink": "Extracted from description or 'Not provided' (string)"
+    }
+  ],
+  "achievements": ["Extracted from description (array of strings)"],
+  "spokenLanguages": ["Extracted from description (array of strings)"],
+  "interests": ["Extracted from description (array of strings)"]
+}
