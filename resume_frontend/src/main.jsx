@@ -9,12 +9,15 @@ import About from './pages/About.jsx'
 import Contact from './pages/Contact.jsx'
 import Services from './pages/Services.jsx'
 import LandingPage from './pages/LandingPage.jsx'
+import GenerateResume from './pages/GenerateResume.jsx'
+import { Toaster } from 'react-hot-toast'
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
 
     <BrowserRouter>
+    <Toaster/>
       <Routes>
         <Route path="/" element={<Root />}>
           <Route path="" element={<Home />} />
@@ -23,6 +26,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="about" element={<About />} />
           <Route path="services" element={<Services />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="generate-resume" element={<GenerateResume />} />
         </Route>
       </Routes>
 
