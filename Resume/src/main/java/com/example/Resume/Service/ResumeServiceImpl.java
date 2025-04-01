@@ -1,5 +1,6 @@
 package com.example.Resume.Service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.prompt.Prompt;
 import org.springframework.core.io.ClassPathResource;
@@ -49,11 +50,10 @@ public class ResumeServiceImpl implements ResumeService {
         return template;
     }
 
-
-
-
         public static Map<String, Object> parseMultipleResponses(String response) {
             Map<String, Object> responseMap = new HashMap<>();
+            ObjectMapper objectMapper = new ObjectMapper();
+
 
             // Extract content inside <think> tags
             int thinkStart = response.indexOf("<think>") + 7;
@@ -66,18 +66,13 @@ public class ResumeServiceImpl implements ResumeService {
             }
 
             // Extract content that is in JSON format
-            int jsonStart = response.indexOf("{", thinkEnd);
-            int jsonEnd = response.lastIndexOf("}");
-            if (jsonStart != -1 && jsonEnd != -1 && jsonStart < jsonEnd) {
-                String jsonContent = response.substring(jsonStart, jsonEnd + 1).trim();
-                try {
-                    responseMap.put("data", jsonContent); // Store JSON string as value
-                } catch (Exception e) {
-                    responseMap.put("data", null); // Handle invalid JSON
-                    System.err.println("Invalid JSON format in the response: " + e.getMessage());
-                }
-            } else {
-                responseMap.put("data", null); // Handle missing JSON
+            try {
+                // Convert JSON String to Map
+                Map<String, Object> jsonMap = objectMapper.readValue(response, Map.class);
+                responseMap.put("data", jsonMap);
+            } catch (Exception e) {
+                responseMap.put("data", null);
+                System.err.println("Invalid JSON format in the response: " + e.getMessage());
             }
 
             return responseMap;

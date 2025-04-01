@@ -1,24 +1,22 @@
-import axios from "axios";
-import { use } from "react";
-
-export const baseURL = "http://localhost:8000"; 
-
-export const axiosInstance = axios.create({
-    baseURL: baseURL,
-    headers: {
-        "Content-Type": "application/json",
-    },
-    });
+export const baseURL = "http://localhost:8080";
 
 export const getResume = async (description) => {
     try {
-        const response = await axiosInstance.post("/api/v1/resume/generate",{
-            userDescription: description,
+        const response = await fetch("http://localhost:8080/api/v1/resume/generate", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ userDescription: description }),
         });
-        
-        return response.data;
+
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+
+        const result = await response.json();
+        result.data = JSON.parse(result.data); // Convert stringified JSON to object
+
+        return result;
     } catch (error) {
         console.error("Error fetching resume:", error);
         throw error;
     }
-}
+};
+

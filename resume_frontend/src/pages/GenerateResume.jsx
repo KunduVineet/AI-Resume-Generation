@@ -1,6 +1,7 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { FaMagic, FaEraser } from "react-icons/fa";
+import { getResume } from "../api/ResumeService";
 
 
 const GenerateResume = () => {
@@ -10,7 +11,7 @@ const GenerateResume = () => {
   const handleGenerate = async () => {
     try {
         setLoading(true);
-        const responseData = await GenerateResume(description);
+        const responseData = await getResume(description);
         console.log(responseData);
         toast.success("Resume generated successfully!",{
             position: "top-right",
