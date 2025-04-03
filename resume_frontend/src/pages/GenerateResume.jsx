@@ -13,8 +13,8 @@ const GenerateResume = () => {
       email: "",
       phoneNumber: "",
       location: "",
-      linkedin: "",
-      github: "",
+      linkedIn: "",
+      gitHub: "",
       portfolio: "",
       resume: ""
     },
