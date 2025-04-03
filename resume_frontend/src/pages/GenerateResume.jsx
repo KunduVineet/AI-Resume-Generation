@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { FaMagic, FaEraser, FaBrain, FaSave, FaPlus } from "react-icons/fa";
 import { BiBook } from "react-icons/bi";
-import { getResume } from "../api/ResumeService";
+import { generateResume } from "../api/ResumeService";
+import Resume from "../components/Resume";
 
 const GenerateResume = () => {
   const defaultLanguages = {
@@ -15,6 +16,9 @@ const GenerateResume = () => {
 
   const [description, setDescription] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showFormUI, setShowFormUI] = useState(false);
+  const [showResumeUI, setShowResumeUI] = useState(false);
+  const [showPromptInput, setShowPromptInput] = useState(true);
   const [data, setData] = useState({
     personalInformation: {
       fullName: "",
@@ -41,6 +45,7 @@ const GenerateResume = () => {
       graduationYear: "",
       location: "",
     },
+    projects: ["", ""],
     achievements: ["", ""],
     spokenLanguages: ["", ""],
     certifications: ["", ""],
@@ -53,6 +58,13 @@ const GenerateResume = () => {
       website: "",
     },
   });
+
+  const onSubmit = ({data}) => {
+    setData({...data});
+    setShowFormUI(false);
+    setShowResumeUI(true);
+    setShowPromptInput(false);
+  }
 
   const handleInputChange = (e, section = "personalInformation") => {
     const { name, value } = e.target;
@@ -89,7 +101,7 @@ const GenerateResume = () => {
   const handleGenerate = async () => {
     try {
       setLoading(true);
-      const responseData = await getResume(description);
+      const responseData = await generateResume(description);
       // Merge API response with default structure to prevent missing fields
       setData((prevData) => ({
         ...prevData,
@@ -99,19 +111,18 @@ const GenerateResume = () => {
           ...(responseData?.data?.languages || {}),
         },
       }));
-      toast.success("Resume generated successfully!");
+      setShowFormUI(true);
+      setShowPromptInput(false);
+      setShowResumeUI(false);
+      toast.success("Resume Generated Successfully!");
     } catch (error) {
       console.error("Error:", error);
-      toast.error("Error generating resume!");
+      toast.error("Error Generating Resume!");
     } finally {
       setLoading(false);
       setDescription("");
     }
   };
-
-  useEffect(() => {
-    console.log("Current Data State:", data);
-  }, [data]);
 
   const InputField = ({ name, label, section = "personalInformation", type = "text" }) => (
     <div className="form-control w-full">
@@ -158,7 +169,7 @@ const GenerateResume = () => {
   );
 
   const ShowInputField = () => (
-    <div className="card w-full max-w-3xl bg-base-200 shadow-xl">
+    <div className="card w-full max-w-4xl bg-base-200 shadow-xl">
       <div className="card-body">
         <h1 className="card-title text-2xl font-bold flex items-center justify-center gap-2 text-white mx-auto">
           <FaBrain className="text-primary" /> AI Resume Generator
@@ -258,6 +269,28 @@ const GenerateResume = () => {
           </div>
         </section>
 
+         {/* Projects*/}
+         <section className="space-y-4 mt-8">
+          <h2 className="text-xl font-semibold text-gray-200">Projects</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {data.projects.map((project, index) => (
+              <ArrayInputField
+                key={index}
+                section="projects"
+                index={index}
+                value={project}
+                label="Project"
+              />
+            ))}
+            <button
+              className="btn btn-outline btn-primary col-span-full flex items-center gap-2"
+              onClick={() => setData({ ...data, projects: [...data.projects, ""] })}
+            >
+              <FaPlus /> Add Project
+            </button>
+          </div>
+        </section>
+
         {/* Achievements */}
         <section className="space-y-4 mt-8">
           <h2 className="text-xl font-semibold text-gray-200">Achievements</h2>
@@ -327,7 +360,7 @@ const GenerateResume = () => {
         {/* Languages (Technical Skills) */}
         <section className="space-y-4 mt-8">
           <h2 className="text-xl font-semibold text-gray-200">Technical Skills</h2>
-          {["frontend", "backend", "database", "devops", "tools"].map((subsection) => (
+          {["Frontend", "Backend", "Database", "Devops", "Tools"].map((subsection) => (
             <div key={subsection} className="space-y-4">
               <h3 className="text-lg font-medium text-gray-300 capitalize">{subsection}</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -403,11 +436,16 @@ const GenerateResume = () => {
     </div>
   );
 
+  function showResume(){
+    return <Resume resumeData={data} />;
+  }
+
   return (
     <div className="min-h-screen bg-base-100 p-4 md:p-8">
       <div className="max-w-5xl mx-auto space-y-8">
-        <ShowForm />
-        <ShowInputField />
+      {showFormUI &&   <ShowForm />}
+      { showPromptInput && <ShowInputField />}
+      {showResumeUI && showResume()}
       </div>
     </div>
   );

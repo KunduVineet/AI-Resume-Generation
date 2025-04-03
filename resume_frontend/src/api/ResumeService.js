@@ -1,6 +1,6 @@
 export const baseURL = "http://localhost:8080";
 
-export const getResume = async (description) => {
+export const generateResume = async (description) => {
     try {
         const response = await fetch("http://localhost:8080/api/v1/resume/generate", {
             method: "POST",
