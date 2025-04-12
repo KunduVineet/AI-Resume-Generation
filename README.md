@@ -400,7 +400,7 @@ The DeepSeek-R1 model is integrated into the backend via the `ResumeServiceImpl.
 
 Please follow the code style and include tests in `src/test/`.
 
-##ScreenShots
+## ScreenShots
 ![image](https://github.com/user-attachments/assets/a95d3de3-9408-4721-b1fe-0cc85da6b2d4)
 ![image](https://github.com/user-attachments/assets/2500d2ae-f167-4d3d-887f-227964de9cdd)
 ![image](https://github.com/user-attachments/assets/fd058870-75e2-43b6-b303-e8ca7f2880d2)
