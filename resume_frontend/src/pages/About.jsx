@@ -8,6 +8,7 @@ import {
   FaGlobe,
   FaCheckCircle,
   FaStar,
+  FaCode
 } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import TeamImage from '../assets/team.jpg';
@@ -54,7 +55,7 @@ const About = () => {
             </motion.p>
             <motion.div variants={fadeIn} className="mt-8 flex gap-4 justify-center md:justify-start">
               <Link
-                to="/generate"
+                to="/generate-resume"
                 className="px-8 py-4 text-lg bg-gradient-to-r from-teal-600 to-purple-600 hover:from-teal-700 hover:to-purple-700 text-white rounded-full shadow-lg transition-transform transform hover:scale-105 flex items-center gap-2"
               >
                 <FaRocket /> Start Your Journey
@@ -233,12 +234,12 @@ const About = () => {
           >
             <ImpactCard
               icon={<FaUsers className="text-teal-400 text-4xl" />}
-              value="10,000+"
+              value="100+"
               label="Resumes Created"
             />
             <ImpactCard
               icon={<FaGlobe className="text-teal-400 text-4xl" />}
-              value="50+"
+              value="10+"
               label="Countries Reached"
             />
             <ImpactCard
@@ -277,7 +278,7 @@ const About = () => {
         </motion.p>
         <motion.div variants={fadeIn} className="flex justify-center gap-4">
           <Link
-            to="/generate"
+            to="/generate-resume"
             className="px-8 py-4 text-lg bg-gradient-to-r from-teal-600 to-purple-600 hover:from-teal-700 hover:to-purple-700 text-white rounded-full shadow-lg transition-transform transform hover:scale-105 flex items-center gap-2"
           >
             <FaRocket /> Create Your Resume

@@ -12,6 +12,7 @@ import {
 } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import TeamImage from '../assets/team.jpg';
+import career from '../assets/career.svg';
 
 // Animation Variants
 const fadeIn = {
@@ -55,7 +56,7 @@ const Services = () => {
             </motion.p>
             <motion.div variants={fadeIn} className="mt-8 flex gap-4 justify-center md:justify-start">
               <Link
-                to="/generate"
+                to="/generate-resume"
                 className="px-8 py-4 text-lg bg-gradient-to-r from-teal-600 to-purple-600 hover:from-teal-700 hover:to-purple-700 text-white rounded-full shadow-lg transition-transform transform hover:scale-105 flex items-center gap-2"
               >
                 <FaRocket /> Start Crafting
@@ -74,7 +75,7 @@ const Services = () => {
             whileHover={{ scale: 1.05 }}
           >
             <img
-              src={TeamImage}
+              src={career}
               alt="Resume creation"
               className="rounded-2xl shadow-xl w-full object-cover h-64 md:h-96 border border-gray-700/50"
             />
@@ -192,19 +193,19 @@ const Services = () => {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           <FeedbackCard
-            name="Sarah M."
+            name="Anshu"
             role="Software Engineer"
-            feedback="This tool transformed my resume in minutes! The AI suggestions were spot-on, and the templates are stunning."
+            feedback="This Tool transformed my Resume in minutes! The AI suggestions were spot-on, and the Templates are Stunning."
             rating={5}
           />
           <FeedbackCard
-            name="James T."
-            role="Marketing Manager"
-            feedback="I love the real-time previews. It made tweaking my resume so easy, and the final PDF looked professional."
+            name="Mayank Arya"
+            role="Data Analyst"
+            feedback="I Love the Real-Time Previews. It made Tweaking my Resume so Easy, and the final PDF looked Professional."
             rating={4}
           />
           <FeedbackCard
-            name="Priya S."
+            name="Shivam Sood"
             role="Recent Graduate"
             feedback="As a newbie, I was nervous, but this platform guided me step-by-step. Landed my first interview!"
             rating={5}
@@ -234,7 +235,7 @@ const Services = () => {
         </motion.p>
         <motion.div variants={fadeIn} className="flex justify-center gap-4">
           <Link
-            to="/generate"
+            to="/generate-resume"
             className="px-8 py-4 text-lg bg-gradient-to-r from-teal-600 to-purple-600 hover:from-teal-700 hover:to-purple-700 text-white rounded-full shadow-lg transition-transform transform hover:scale-105 flex items-center gap-2"
           >
             <FaRocket /> Get Started
