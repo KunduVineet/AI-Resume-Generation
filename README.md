@@ -400,5 +400,13 @@ The DeepSeek-R1 model is integrated into the backend via the `ResumeServiceImpl.
 
 Please follow the code style and include tests in `src/test/`.
 
+## ScreenShots
+![image](https://github.com/user-attachments/assets/a95d3de3-9408-4721-b1fe-0cc85da6b2d4)
+![image](https://github.com/user-attachments/assets/2500d2ae-f167-4d3d-887f-227964de9cdd)
+![image](https://github.com/user-attachments/assets/fd058870-75e2-43b6-b303-e8ca7f2880d2)
+![Screenshot 2025-04-11 120926](https://github.com/user-attachments/assets/1b7a6595-2b8b-4515-bbe9-90c5a879d6aa)
+![Screenshot 2025-04-11 120938](https://github.com/user-attachments/assets/f6763bff-eafd-4448-b682-cb05e66dff58)
+
+
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
