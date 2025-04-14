@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { FaMagic, FaEraser, FaBrain, FaSave, FaPlus } from "react-icons/fa";
 import { BiBook } from "react-icons/bi";

@@ -15,7 +15,7 @@ export default function LandingPage() {
                         AI-Powered Resume Generator
                     </h1>
                     <p className="text-xl mt-6 text-gray-300 leading-relaxed">
-                        Transform your Career Story into a stunning Resume with cutting-edge AI
+                        Transform your Career Story into a stunning Resume with Cutting-Edge AI
                     </p>
                     <Link to="/generate-resume" className="mt-6 px-6 py-3 text-lg bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white rounded-xl shadow-lg transition-transform transform hover:scale-105 inline-block">
                         Get Started
@@ -30,22 +30,22 @@ export default function LandingPage() {
                     <FeatureCard
                         icon={<FaRobot className="text-indigo-400 text-3xl" />}
                         title="AI-Generated Content"
-                        desc="Professionally crafted resume content powered by cutting-edge AI technology."
+                        desc="Professionally crafted Resume Content powered by Cutting-Edge AI Technology."
                     />
                     <FeatureCard
                         icon={<FaFileAlt className="text-indigo-400 text-3xl" />}
                         title="Multiple Templates"
-                        desc="Choose from sleek, modern designs tailored for any profession."
+                        desc="Choose from Sleek, Modern Designs Tailored for every Profession."
                     />
                     <FeatureCard
                         icon={<FaMagic className="text-indigo-400 text-3xl" />}
                         title="One-Click Editing"
-                        desc="Effortlessly customize your resume with intuitive controls."
+                        desc="Effortlessly Customize your Resume with Intuitive Controls."
                     />
                     <FeatureCard
                         icon={<FaCloudUploadAlt className="text-indigo-400 text-3xl" />}
                         title="Cloud Save"
-                        desc="Safely store and access your resume anytime, anywhere."
+                        desc="Safely Store and Access your Resume Anytime, Anywhere."
                     />
                 </div>
             </section>
@@ -59,26 +59,26 @@ export default function LandingPage() {
                 <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
                     <h2 className="text-4xl md:text-5xl font-bold text-gray-100 tracking-tight">How It Works</h2>
                     <p className="text-gray-300 mt-4 max-w-2xl mx-auto text-lg">
-                        Create your perfect resume in three simple steps
+                        Create your Perfect Resume in Three Simple Steps
                     </p>
                     <div className="mt-16 max-w-6xl mx-auto">
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 relative">
                             <StepCard
                                 step="1"
                                 title="Upload Your Info"
-                                desc="Start by entering your details or uploading an existing resume."
+                                desc="Start by Entering your Details or Uploading an Existing Resume."
                                 icon={<FaCloudUploadAlt className="text-purple-400 text-3xl" />}
                             />
                             <StepCard
                                 step="2"
                                 title="AI Enhancement"
-                                desc="Our AI optimizes your content for a professional edge."
+                                desc="Our AI Optimizes your Content for a Professional Edge."
                                 icon={<FaMagic className="text-purple-400 text-3xl" />}
                             />
                             <StepCard
                                 step="3"
                                 title="Download & Share"
-                                desc="Export your polished resume in multiple formats with ease."
+                                desc="Export your Polished Resume in Multiple Formats with Ease."
                                 icon={<FaFileAlt className="text-purple-400 text-3xl" />}
                             />
                             {/* Connecting Lines - Visible on medium screens and up */}
